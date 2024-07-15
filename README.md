@@ -1,10 +1,34 @@
-<https://gist.github.com/jcavat/2ed51c6371b9b488d6a940ba1049189b>
+# XAMPP Dockerized Replacement
 
-And run "docker-compose up". Then go to localhost:8080 and you should see a table with the data loaded from the myDb.sql file.
+I am using this Docker setup in my university course 1011ICT Applied Computing 
+instead of using XAMPP that is used in the university course because.
 
-You can also go to localhost:8081 and log in to the database with phpmyadmin.
+Initial configuration was taken from [here](https://gist.github.com/jcavat/2ed51c6371b9b488d6a940ba1049189b)
 
-    Server: mysql
-    User: user
-    Password: test
-    Database: myDb
+## Requirements
+ - Docker and Docker Compose
+
+## Setup
+Clone this repository
+
+TODO: Update this
+```
+git clone blah
+```
+
+## Useage
+
+### Start environment
+
+Run `docker compose up`. Then in a web browser, browse to `localhost:8080` 
+and you should see a table with the data loaded from the `myDb.sql` file.
+
+
+### PHP My Admin
+You can also browse to `localhost:8081` and log in to the database with `phpmyadmin`.
+
+#### Database Details
+ - Server: mysql
+ - User: user
+ - Password: test
+ - Database: myDb
