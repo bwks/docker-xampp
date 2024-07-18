@@ -15,22 +15,29 @@ Clone this repository without the history so you can
 check it into your own git repo.
 
 ```
-git clone --depth 1 https://github.com/bwks/1011ICT-Applied-Computing
+git clone --depth 1 git@github.com:bwks/docker-xampp.git
 ```
 
-## Useage
+## Usage
 
-### Start environment
-CD into the `1011ICT-Applied-Computing`
+### Overview
+CD into the `docker-xampp` directory.
 
-Run `bin/dev up`. Then in a web browser, browse to `localhost:8080`
+There is a `dev` script in the `bin/` directory that 
+can be used to interact with the environment.
+
+### Start Environment
+Run the `bin/dev up` command. Then in a web browser, browse to `localhost:8080`
 and you should see a table with the data loaded from the `myDb.sql` file.
 
-### PHP My Admin
+### Stop Environment 
+Run the `bin/dev down` command.
 
-You can also browse to `localhost:8081` and log in to the database with the `phpmyadmin` application.
+## PHP My Admin
 
-#### Database Details
+You can browse to `http://localhost:8081` and log in to the database using the `phpmyadmin` application.
+
+### Database Details
 
 - Server: mysql
 - User: user
