@@ -11,24 +11,24 @@ Initial configuration was taken from [here](https://gist.github.com/jcavat/2ed51
 
 ## Setup
 
-Clone this repository
-
-TODO: Update this
+Clone this repository without the history so you can 
+check it into your own git repo.
 
 ```
-git clone blah
+git clone --depth 1 https://github.com/bwks/1011ICT-Applied-Computing
 ```
 
 ## Useage
 
 ### Start environment
+CD into the `1011ICT-Applied-Computing`
 
-Run `docker compose up`. Then in a web browser, browse to `localhost:8080`
+Run `bin/dev up`. Then in a web browser, browse to `localhost:8080`
 and you should see a table with the data loaded from the `myDb.sql` file.
 
 ### PHP My Admin
 
-You can also browse to `localhost:8081` and log in to the database with `phpmyadmin`.
+You can also browse to `localhost:8081` and log in to the database with the `phpmyadmin` application.
 
 #### Database Details
 
