@@ -36,8 +36,3 @@ You can also browse to `localhost:8081` and log in to the database with `phpmyad
 - User: user
 - Password: test
 - Database: myDb
-
-TODO:
-
-- There is an issue with the database. Need to fix it
-- setup bin/dev script
