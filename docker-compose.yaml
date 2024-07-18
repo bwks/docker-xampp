@@ -1,5 +1,5 @@
 services:
-  php:
+  web:
     build: .
     restart: always
     ports:
@@ -7,8 +7,9 @@ services:
     volumes:
       - ./src:/var/www/html
       - ./log:/var/log/apache2
-  mysql:
+  db:
     image: mysql:8.0
+    user: mysql
     restart: always
     ports:
       - "3306:3306"
@@ -22,7 +23,7 @@ services:
       - ./dump:/docker-entrypoint-initdb.d
       - ./conf:/etc/mysql/conf.d
       - persistent:/var/lib/mysql
-  phpmyadmin:
+  webadmin:
     image: phpmyadmin
     restart: always
     ports:

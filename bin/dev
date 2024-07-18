@@ -1,56 +1,6 @@
 #! /bin/sh
 
-# Set these
-APP_NAME="<UPDATE>";
-APP_OWNER="<UPDATE>";
-APP_OWNER_EMAIL="<UPDATE>";
-
-# These should be generated automagically
-UID=$(id -u);
-GID=$(id -g);
-APP_USER=$USER;
-APP_USER_ID=$UID;
-APP_GROUP_ID=$GID;
-HOME_DIR=$HOME;
-
-# Export vars so they are passed to docker/compose
-export APP_NAME;
-export APP_OWNER;
-export APP_OWNER_EMAIL;
-export UID;
-export GID;
-export APP_USER;
-export APP_USER_ID;
-export APP_GROUP_ID;
-export HOME_DIR;
-
 ARG=$1;
-
-# Builds a Shazam docker container.
-build_container() {
-  docker compose \
-    --file docker-compose.yaml \
-    build --no-cache \
-      --build-arg APP_NAME=$APP_NAME \
-      --build-arg APP_OWNER="$APP_OWNER" \
-      --build-arg APP_OWNER_EMAIL="$APP_OWNER_EMAIL" \
-      --build-arg APP_USER=$USER \
-      --build-arg APP_USER_ID=$UID \
-      --build-arg APP_GROUP_ID=$GID \
-      --build-arg HOME_DIR=$HOME;
-}
-
-# Initializes a Shazam project and copies the files from the 
-# container to the host.
-init_project() {
-  docker container run -itd --name=shazam-tmp bwks/shazam ash \
-    && docker container cp shazam-tmp:$HOME/$APP_NAME $APP_NAME \
-    && docker container cp shazam-tmp:$HOME/config config \
-    && docker container kill shazam-tmp \
-    && docker container rm shazam-tmp;
-
-  echo "{}" >> .shazam_template_hashes.json;
-}
 
 case $ARG in
   # Bring up the project container
@@ -69,11 +19,9 @@ case $ARG in
 
   # Build the project container
   "build")
-    build_container;
-    ;;
-
-    build_container;
-    init_project;
+    docker compose \
+      --file docker-compose.yaml \
+      build --no-cache
     ;;
 
   *)
